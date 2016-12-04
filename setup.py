@@ -10,7 +10,7 @@ except IOError:
 
 setup(
     name='vine-python',
-    version='1.0.0',
+    version='1.0.1',
     description='Python Vine API',
     long_description=long_description,
     url='https://github.com/rohitkhatri/vine-python',

@@ -10,7 +10,12 @@ class API:
 
     @classmethod
     def get_video(cls, video_id, **kwargs):
-        return cls.get('timelines/posts/s/{video_id}'.format(video_id=video_id), **kwargs)
+        video = cls.get('timelines/posts/s/{video_id}'.format(video_id=video_id), **kwargs)
+
+        if 'data' in video and 'records' in video['data'] and video['data']['records']:
+            return video['data']['records'][0]
+
+        return None
 
     @classmethod
     def get_profile(cls, user_id, **kwargs):
@@ -31,4 +36,3 @@ class API:
     @staticmethod
     def response(response):
         return response.json()
-
